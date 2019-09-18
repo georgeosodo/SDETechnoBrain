@@ -97,6 +97,10 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[5.9.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.0.1, )"
@@ -106,6 +110,14 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "Shouldly": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "nspec": {
+              "target": "Package",
+              "version": "[3.1.0, )"
             },
             "xunit": {
               "target": "Package",

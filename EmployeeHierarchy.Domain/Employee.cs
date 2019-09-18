@@ -19,13 +19,16 @@ namespace EmployeeHierarchy.Domain
         }
         public static List<Employee> Create(string[] CsvInput)
         {
+            Employees.ValidSalaries = true;
             List<Employee> employees = new List<Employee>();
             foreach (var employeeInput in CsvInput )
             {
                 var values = employeeInput.Split(',');
                 Int16 EmployeeSalary;
-                bool IsValidInteger = Int16.TryParse(values[2], out EmployeeSalary);
-                if (!IsValidInteger || EmployeeSalary < 0) throw new ArgumentOutOfRangeException("Salary cannot be less that 0");                           
+               
+               if(!Int16.TryParse(values[2], out EmployeeSalary) || EmployeeSalary < 0)               
+                    Employees.ValidSalaries = false;
+                                                
                 employees.Add(new Employee(values[0], values[1], EmployeeSalary));
             }
 
